@@ -1,7 +1,5 @@
 // You have a word n letters long. You can spell the word out using n 6-sided wooden spelling blocks. A block can only be used once to spell the word.
 
-// Example given (more or less, I don't remember the exact example):
-
 // Spell the word GOOGLE using these blocks:
 
 // 1: [G , B , A, C, D , E]
