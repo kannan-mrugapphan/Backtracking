@@ -45,3 +45,37 @@ class Solution {
         return;
     }
 }
+
+// 77.
+// time - O(n! / k!(n - k)!) - number of combinations = nCk
+// space - O(n + k)
+class Solution {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>(); //return list
+        List<Integer> path = new ArrayList<>(); 
+        helper(n, k, path, result, 1);
+        return result;
+    }
+    
+    private void helper(int n, int k, List<Integer> path, List<List<Integer>> result, int current) {
+        //base
+        if(path.size() == k)
+        {
+            //k number are already choosen
+            result.add(new ArrayList<>(path)); //add a copy of current path to result
+            return;
+        }
+        if(path.size() > k)
+        {
+            return;
+        }
+        //logic
+        for(int number = current; number <= n; number++)
+        {
+            path.add(number); //choose current
+            helper(n, k, path, result, number + 1); //recurse
+            path.remove(path.size() - 1); //remove last element to revrt to prev state
+        }
+        return;
+    }
+}
